@@ -4,12 +4,12 @@
 
 <div class="flex h-full flex-col items-center">
 	<div class="m-auto">
-		<h1 class="text-6xl font-extrabold uppercase md:text-8xl">
+		<h1 class="text-4xl font-extrabold uppercase lg:text-6xl">
 			{$page.status}
 			{$page.error?.message}
 		</h1>
-		<a class="underline underline-offset-2" href="/">
-			...and so they left, bitterly avenged and deeply lost.
+		<a class="pointer-events-auto underline underline-offset-2" href="/">
+			Return to home page &gt;
 		</a>
 	</div>
 </div>
