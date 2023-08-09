@@ -1,6 +1,9 @@
 {
 	"name": "bddvlpr-site",
 	"version": "0.0.1",
+	"description": "My personal portfolio (and playground).",
+	"author": "Luna Simons <luna@bddvlpr.com> (https://bddvlpr.com)",
+	"license": "BSD-3-Clause",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
