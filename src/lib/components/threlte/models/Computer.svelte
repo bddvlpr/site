@@ -5,7 +5,7 @@
 
 	export const ref = new Group();
 
-	const gltf = useGltf('/models/computer.glb');
+	const gltf = useGltf('/models/computer.glb', { useDraco: true });
 
 	const component = forwardEventHandlers();
 </script>
