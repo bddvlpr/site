@@ -7,7 +7,7 @@
 
 <Computer position={[1, 0, 0]} />
 
-<HTML transform position.y={2} pointerEvents="none">
+<HTML transform position.y={2} pointerEvents="inherit">
 	<slot />
 </HTML>
 

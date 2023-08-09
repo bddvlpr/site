@@ -17,7 +17,7 @@
 			linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
 		background-size: 100% 4px, 30px 100%;
 		animation: flicker 100ms infinite;
-		z-index: 1;
+		z-index: 9999999999999;
 	}
 
 	.crt-circle {
@@ -31,7 +31,7 @@
 		pointer-events: none;
 		background: rgb(255, 255, 255);
 		background: radial-gradient(circle, rgba(255, 255, 255, 0) 70%, rgba(0, 0, 0, 0.8) 100%);
-		z-index: 2;
+		z-index: 999999999999;
 	}
 
 	@keyframes flicker {
