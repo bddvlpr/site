@@ -24,6 +24,6 @@
 		maxAzimuthAngle={degToRad(45)}
 		minAzimuthAngle={degToRad(-45)}
 		minZoom={65}
-		maxZoom={75}
+		maxZoom={120}
 	/>
 </T.OrthographicCamera>
