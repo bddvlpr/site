@@ -26,4 +26,3 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Lint project
         run: yarn lint --max-warnings 0
-
