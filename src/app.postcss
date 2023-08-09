@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
-	@apply h-full overflow-hidden;
+* {
+	text-shadow: -1px 0px red, 1px 0px lime, 0px -1px blue;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	text-shadow: -2px 0px red, 2px 0px lime, 0px -2px blue;
+}
+
+html,
+body {
+	@apply h-full overflow-hidden text-white;
+	background: rgba(18, 18, 18, 1);
 }
