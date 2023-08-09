@@ -5,7 +5,7 @@
 	import { degToRad } from 'three/src/math/MathUtils';
 </script>
 
-<Computer />
+<Computer position={[1, 0, 0]} />
 
 <HTML transform position.y={2} pointerEvents="none">
 	<slot />
