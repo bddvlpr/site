@@ -4,6 +4,9 @@
 	import CrtContainer from '$lib/components/effects/CrtContainer.svelte';
 	import { Canvas } from '@threlte/core';
 	import ComputerScene from '$lib/components/threlte/scenes/ComputerScene.svelte';
+	import WebGL from 'three/examples/jsm/capabilities/WebGL.js';
+
+	$: hasWebGL = WebGL.isWebGLAvailable() || WebGL.isWebGL2Available();
 </script>
 
 <svelte:head>
@@ -11,9 +14,14 @@
 </svelte:head>
 
 <CrtContainer>
-	<Canvas>
-		<ComputerScene>
-			<slot />
-		</ComputerScene>
-	</Canvas>
+	{#if hasWebGL}
+		<Canvas>
+			<ComputerScene>
+				<slot />
+			</ComputerScene>
+		</Canvas>
+	{:else}
+		No supported WebGL capabilities found.
+		<slot />
+	{/if}
 </CrtContainer>
