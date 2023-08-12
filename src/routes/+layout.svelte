@@ -6,7 +6,9 @@
 	import ComputerScene from '$lib/components/threlte/scenes/ComputerScene.svelte';
 	import WebGL from 'three/examples/jsm/capabilities/WebGL.js';
 
-	$: hasWebGL = WebGL.isWebGLAvailable() || WebGL.isWebGL2Available();
+	const checkWebGL = new Promise<boolean>((resolve) => {
+		resolve(WebGL.isWebGLAvailable() || WebGL.isWebGL2Available());
+	});
 </script>
 
 <svelte:head>
@@ -14,14 +16,16 @@
 </svelte:head>
 
 <CrtContainer>
-	{#if hasWebGL}
-		<Canvas>
-			<ComputerScene>
-				<slot />
-			</ComputerScene>
-		</Canvas>
-	{:else}
-		No supported WebGL capabilities found.
-		<slot />
-	{/if}
+	{#await checkWebGL then hasWebGL}
+		{#if hasWebGL}
+			<Canvas>
+				<ComputerScene>
+					<slot />
+				</ComputerScene>
+			</Canvas>
+		{:else}
+			No supported WebGL capabilities found.
+			<slot />
+		{/if}
+	{/await}
 </CrtContainer>
