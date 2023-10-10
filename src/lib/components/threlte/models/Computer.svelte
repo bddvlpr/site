@@ -1,13 +1,29 @@
 <script lang="ts">
 	import { Group } from 'three';
-	import { T, forwardEventHandlers } from '@threlte/core';
+	import { T, forwardEventHandlers, useFrame } from '@threlte/core';
 	import { useGltf } from '@threlte/extras';
 
 	export const ref = new Group();
 
 	const gltf = useGltf('/models/computer.glb', { useDraco: true });
-
 	const component = forwardEventHandlers();
+
+	let frame = 0;
+
+	useFrame(() => {
+		if (!$gltf) return;
+
+		const emission = frame % +Math.random().toFixed(0) === 0 ? 0 : 1;
+
+		$gltf.materials['Material.002'].emissive = {
+			r: emission,
+			g: emission,
+			b: emission,
+			isColor: true
+		};
+
+		frame++;
+	});
 </script>
 
 <T is={ref} dispose={false} {...$$restProps} bind:this={$component}>
