@@ -21,7 +21,7 @@
 		enableDamping
 		maxPolarAngle={degToRad(90)}
 		minPolarAngle={degToRad(45)}
-		maxAzimuthAngle={degToRad(45)}
+		maxAzimuthAngle={degToRad(25)}
 		minAzimuthAngle={degToRad(-45)}
 		minZoom={65}
 		maxZoom={120}
