@@ -26,7 +26,6 @@
 		<a href="https://github.com/bddvlpr"><Fa icon={faGithub} size="2x" /></a>
 		<a href="https://steamcommunity.com/id/gpgkey"><Fa icon={faSteam} size="2x" /></a>
 		<a href="https://last.fm/user/bddvlpr"><Fa icon={faLastfm} size="2x" /></a>
-		<a href="https://linkedin.com/in/bddvlpr"><Fa icon={faLinkedin} size="2x" /></a>
 		<a href="mailto:contact@bddvlpr.com"><Fa icon={faPaperPlane} size="2x" /></a>
 		<a href="https://open.spotify.com/user/1158898067"><Fa icon={faSpotify} size="2x" /></a>
 	</div>
