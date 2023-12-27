@@ -1,12 +1,6 @@
 <script lang="ts">
 	import Fa from 'svelte-fa';
-	import {
-		faGithub,
-		faLastfm,
-		faLinkedin,
-		faSpotify,
-		faSteam
-	} from '@fortawesome/free-brands-svg-icons';
+	import { faGithub, faLastfm, faSpotify, faSteam } from '@fortawesome/free-brands-svg-icons';
 	import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 	import type { PageData } from './$types';
 
@@ -15,11 +9,13 @@
 	$: song = data.song[0] || undefined;
 </script>
 
-<div class="bg-white-100 -2 flex h-full flex-col items-center">
+<div class="bg-white-100 flex h-full flex-col items-center pt-4">
 	<div class="m-auto">
-		<h1 class="text-6xl font-extrabold line-through decoration-8 md:text-8xl">bddvlpr</h1>
+		<h1 class="text-5xl font-extrabold line-through decoration-8 md:text-8xl">bddvlpr</h1>
 		{#if song}
-			&sung; {song.name} - {song.artist['#text']}
+			<div class="w-48 truncate md:w-96">
+				&sung; {song.name} - {song.artist['#text']}
+			</div>
 		{/if}
 	</div>
 	<div class="pointer-events-auto grid grid-cols-2 gap-2 place-self-start pt-2 md:grid-cols-3">
