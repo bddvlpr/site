@@ -8,21 +8,16 @@
 	const gltf = useGltf('/models/computer.glb', { useDraco: true });
 	const component = forwardEventHandlers();
 
-	let frame = 0;
-
 	useFrame(() => {
 		if (!$gltf) return;
 
-		const emission = frame % +Math.random().toFixed(0) === 0 ? 0 : 1;
-
+		const emission = Math.random();
 		$gltf.materials['Material.002'].emissive = {
 			r: emission,
 			g: emission,
 			b: emission,
 			isColor: true
 		};
-
-		frame++;
 	});
 </script>
 
