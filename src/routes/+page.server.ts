@@ -11,6 +11,6 @@ export const load: PageServerLoad = async ({ fetch }) => {
 	);
 
 	return {
-		song: (await lastfmRequest.json()).recenttracks.track as Track[]
+		recentTracks: (await lastfmRequest.json()).recenttracks.track as Track[]
 	};
 };
