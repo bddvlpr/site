@@ -4,8 +4,6 @@
 	import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 	import type { PageData } from './$types';
 	import Anchor from '$lib/components/content/Anchor.svelte';
-	import { onMount } from 'svelte';
-	import { invalidateAll } from '$app/navigation';
 
 	export let data: PageData;
 
