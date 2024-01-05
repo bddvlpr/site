@@ -18,9 +18,9 @@
 	$: recentSong = data.recentTracks[0];
 </script>
 
-<div class="bg-white-100 flex h-full flex-col items-center">
+<div class="bg-white-100 flex h-full flex-col items-center pt-4">
 	<div class="m-auto">
-		<h1 class="text-4xl font-extrabold line-through decoration-8 md:text-6xl">bddvlpr</h1>
+		<h1 class="text-5xl font-extrabold line-through decoration-8 md:text-8xl">bddvlpr</h1>
 		<div class="w-48 truncate md:w-96">
 			{#if recentSong}
 				<Anchor>
