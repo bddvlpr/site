@@ -23,7 +23,7 @@
       description:
         'Fast, typesafe fetch client for your OpenAPI schema. Works with Angular HTTPClient API.',
       href: 'https://github.com/devolite/openapi-fetch-angular',
-      title: 'devolite/openapi-fetch-tauri'
+      title: 'devolite/openapi-fetch-angular'
     },
     {
       description: 'Nix Packages collection.',

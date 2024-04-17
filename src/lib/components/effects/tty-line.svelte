@@ -9,7 +9,7 @@
     status === 'EMPTY' ? ' ' : position === 'left' ? '[' : ']';
 </script>
 
-<div class="block whitespace-pre-wrap leading-4">
+<div class="block whitespace-pre leading-4">
   {getBracket('left')}<span
     class:text-green-400={status === 'OK'}
     class:text-red-400={['FAILED', 'TIME'].includes(status)}
