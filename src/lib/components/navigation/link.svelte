@@ -12,4 +12,6 @@
   } & HTMLAttributes<HTMLAnchorElement> = $props();
 </script>
 
-<a class="text-blue-300 underline" {href} {...restProps}> {@render children()}</a>
+<a class="text-blue-300 underline hover:text-blue-400" {href} {...restProps}>
+  {@render children()}</a
+>

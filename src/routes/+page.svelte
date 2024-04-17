@@ -30,11 +30,45 @@
       href: 'https://github.com/nixos/nixpkgs',
       title: 'nixos/nixpkgs'
     }
-  ];
+  ].sort((a, b) => a.title.localeCompare(b.title));
+
+  const connections = [
+    {
+      href: 'https://github.com/bddvlpr',
+      title: 'GitHub'
+    },
+    {
+      href: 'mailto:luna@bddvlpr.com',
+      title: 'Email'
+    },
+    {
+      href: 'https://discord.com/users/932859041368125532',
+      title: 'Discord'
+    },
+    {
+      href: 'https://matrix.to/#/@luna:bddvlpr.com',
+      title: 'Matrix'
+    },
+    {
+      href: 'https://www.last.fm/user/bddvlpr',
+      title: 'Last.fm'
+    },
+    {
+      href: 'https://steamcommunity.com/id/gpgkey',
+      title: 'Steam'
+    },
+    {
+      href: 'https://open.spotify.com/user/1158898067',
+      title: 'Spotify'
+    }
+  ].sort((a, b) => a.title.localeCompare(b.title));
 </script>
 
 <TtyLine># Welcome to my portfolio page.</TtyLine>
+<TtyLine status="EMPTY">I'm Luna, a full-stack developer and devops engineer from Belgium.</TtyLine>
+<TtyLine status="EMPTY">Thanks for visiting!</TtyLine>
 <br />
+
 <TtyLine>## About</TtyLine>
 <TtyLine status="EMPTY">
   - Interested in high-availability structures, Nix and cryptography.</TtyLine
@@ -43,9 +77,16 @@
 <TtyLine status="EMPTY">- Consumes battery acid 24/7 while listening to music.</TtyLine>
 <TtyLine status="EMPTY">- Perfectionistic in a bad way.</TtyLine>
 <br />
+
 <TtyLine>## Projects</TtyLine>
 {#each projects as { description, href, title }}
   <TtyLine status="EMPTY">
     - <Link {href}>{title}</Link>: {description}
   </TtyLine>
+{/each}
+<br />
+
+<TtyLine>## Connections</TtyLine>
+{#each connections as { href, title }}
+  <TtyLine status="EMPTY">- <Link {href}>{title}</Link></TtyLine>
 {/each}
