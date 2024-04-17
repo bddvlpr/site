@@ -11,11 +11,11 @@ const config = {
     adapter: adapter()
   },
   preprocess: [
-    vitePreprocess(),
+    vitePreprocess({}),
     mdsvex({
       extensions: ['.svx'],
       rehypePlugins: [rehypeSlug],
-      remarkPlugins: [[remarkToc, { tight: true }]]
+      remarkPlugins: [remarkToc]
     })
   ]
 };
