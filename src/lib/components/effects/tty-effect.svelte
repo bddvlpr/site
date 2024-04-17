@@ -4,6 +4,6 @@
   const { children }: { children: Snippet } = $props();
 </script>
 
-<div class="mx-1 my-2 font-tty">
+<div class="px-1 py-2 font-tty">
   {@render children()}
 </div>
