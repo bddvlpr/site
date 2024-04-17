@@ -4,7 +4,7 @@
   import TtyLine from './tty-line.svelte';
 
   let {
-    delay = 40,
+    delay = 21,
     finished = $bindable(false),
     lines
   }: {
