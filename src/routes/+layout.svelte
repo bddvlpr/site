@@ -7,6 +7,7 @@
   import '../app.pcss';
 
   const { children } = $props();
+
   let finished = $state(false);
 </script>
 
