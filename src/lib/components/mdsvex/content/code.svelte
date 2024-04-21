@@ -4,8 +4,4 @@
   const { children }: { children: Snippet } = $props();
 </script>
 
-<table class="table-fixed px-1 py-2 font-tty">
-  <tbody>
-    {@render children()}
-  </tbody>
-</table>
+<code class="font-tty text-purple-200">{@render children()}</code>

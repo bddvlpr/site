@@ -28,5 +28,8 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['@typescript-eslint'],
-  root: true
+  root: true,
+  rules: {
+    'svelte/valid-compile': 'off'
+  }
 };

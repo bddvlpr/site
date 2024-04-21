@@ -1,15 +1,26 @@
 <script lang="ts">
   import TtyLine from '$lib/components/effects/tty-line.svelte';
-  import Link from '$lib/components/navigation/link.svelte';
+  import TtyStatus from '$lib/components/effects/tty-status.svelte';
+  import Post from '$lib/components/post.svelte';
 
   const { data } = $props();
 </script>
 
-<TtyLine># Blog</TtyLine>
-<TtyLine status="PROGRESS">This page is still under construction.</TtyLine>
-<br />
-<TtyLine>## Latest</TtyLine>
-{#each data.posts as { date, slug, title }}
-  {@const formattedDate = new Date(date).toLocaleDateString()}
-  <TtyLine status="EMPTY">- {formattedDate} <Link href="/blog/{slug}">{title}</Link></TtyLine>
-{/each}
+<svelte:head>
+  <title>bddvlpr - Blog</title>
+  <meta name="description" content="Luna's blog. I write about random stuff." />
+</svelte:head>
+
+{#await data.posts}
+  <TtyStatus status="PROG">Loading posts...</TtyStatus>
+{:then posts}
+  <TtyStatus status="OK">Loaded {posts.length} post(s).</TtyStatus>
+  <TtyLine>
+    {#each posts as metadata}
+      <Post {metadata} />
+      <br />
+    {/each}
+  </TtyLine>
+{:catch}
+  <TtyStatus status="FAIL">Failed to load posts.</TtyStatus>
+{/await}

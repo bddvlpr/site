@@ -1,6 +1,7 @@
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
+import { resolve } from 'path';
 import rehypeSlug from 'rehype-slug';
 import remarkToc from 'remark-toc';
 
@@ -14,8 +15,13 @@ const config = {
     vitePreprocess({}),
     mdsvex({
       extensions: ['.svx'],
+      layout: resolve('./src/lib/components/mdsvex/layout.svelte'),
       rehypePlugins: [rehypeSlug],
-      remarkPlugins: [remarkToc]
+      remarkPlugins: [remarkToc],
+      smartypants: {
+        dashes: 'oldschool',
+        quotes: false
+      }
     })
   ]
 };

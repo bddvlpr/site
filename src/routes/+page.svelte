@@ -1,92 +1,99 @@
 <script lang="ts">
   import TtyLine from '$lib/components/effects/tty-line.svelte';
+  import TtyStatus from '$lib/components/effects/tty-status.svelte';
   import Link from '$lib/components/navigation/link.svelte';
 
-  const projects = [
+  const links = [
     {
-      description: 'Serves a calendar API (ICS) for events provided from Untis.',
-      href: 'https://github.com/bddvlpr/untis-ics-sync',
-      title: 'bddvlpr/untis-ics-sync'
+      href: 'mailto:contact@bddvlpr.com',
+      text: 'e-mail'
     },
-    {
-      description: "Small Spotify integration into VRChat's chatbox OSC.",
-      href: 'https://github.com/bddvlpr/vrc-osc-spotify',
-      title: 'bddvlpr/vrc-osc-spotify'
-    },
-    {
-      description:
-        'Fast, typesafe fetch client for your OpenAPI schema. Works with Tauri HTTP API.',
-      href: 'https://github.com/devolite/openapi-fetch-tauri',
-      title: 'devolite/openapi-fetch-tauri'
-    },
-    {
-      description:
-        'Fast, typesafe fetch client for your OpenAPI schema. Works with Angular HTTPClient API.',
-      href: 'https://github.com/devolite/openapi-fetch-angular',
-      title: 'devolite/openapi-fetch-angular'
-    },
-    {
-      description: 'Nix Packages collection.',
-      href: 'https://github.com/nixos/nixpkgs',
-      title: 'nixos/nixpkgs'
-    }
-  ].sort((a, b) => a.title.localeCompare(b.title));
-
-  const connections = [
     {
       href: 'https://github.com/bddvlpr',
-      title: 'GitHub'
-    },
-    {
-      href: 'mailto:luna@bddvlpr.com',
-      title: 'Email'
+      text: 'github'
     },
     {
       href: 'https://discord.com/users/932859041368125532',
-      title: 'Discord'
+      text: 'discord'
     },
     {
       href: 'https://matrix.to/#/@luna:bddvlpr.com',
-      title: 'Matrix'
+      text: 'matrix'
     },
     {
-      href: 'https://www.last.fm/user/bddvlpr',
-      title: 'Last.fm'
+      href: 'https://last.fm/user/bddvlpr',
+      text: 'last.fm'
     },
     {
       href: 'https://steamcommunity.com/id/gpgkey',
-      title: 'Steam'
-    },
-    {
-      href: 'https://open.spotify.com/user/1158898067',
-      title: 'Spotify'
+      text: 'steam'
     }
-  ].sort((a, b) => a.title.localeCompare(b.title));
+  ].sort((a, b) => a.text.localeCompare(b.text));
+
+  const { data } = $props();
 </script>
 
-<TtyLine># Welcome to my portfolio page.</TtyLine>
-<TtyLine status="EMPTY">I'm Luna, a full-stack developer and devops engineer from Belgium.</TtyLine>
-<TtyLine status="EMPTY">Thanks for visiting!</TtyLine>
+<svelte:head>
+  <title>bddvlpr</title>
+  <meta name="description" content="Luna's portfolio page. I'm sorry mobile users." />
+</svelte:head>
+
+<TtyStatus status="OK">Welcome to my portfolio page.</TtyStatus>
+<TtyLine>
+  Hi, I'm Luna, a full-stack developer and devops engineer from Belgium. Feel free to browse my
+  projects and organisations below, or check out my <Link href="/blog">/blog</Link> where I write about
+  random stuff.
+</TtyLine>
 <br />
 
-<TtyLine>## About</TtyLine>
-<TtyLine status="EMPTY">
-  - Interested in high-availability structures, Nix and cryptography.</TtyLine
->
-<TtyLine status="EMPTY">- Virtual Reality & electronics hobbyist. FOSS & Linux enthusiast.</TtyLine>
-<TtyLine status="EMPTY">- Consumes battery acid 24/7 while listening to music.</TtyLine>
-<TtyLine status="EMPTY">- Perfectionistic in a bad way.</TtyLine>
-<br />
-
-<TtyLine>## Projects</TtyLine>
-{#each projects as { description, href, title }}
-  <TtyLine status="EMPTY">
-    - <Link {href}>{title}</Link>: {description}
+<TtyStatus status="OK">Connections</TtyStatus>
+{#each links as { href, text }}
+  <TtyLine>
+    - <Link external {href}>{text}</Link>
   </TtyLine>
 {/each}
 <br />
 
-<TtyLine>## Connections</TtyLine>
-{#each connections as { href, title }}
-  <TtyLine status="EMPTY">- <Link {href}>{title}</Link></TtyLine>
-{/each}
+{#await data.repos}
+  <TtyStatus status="PROG">Loading projects...</TtyStatus>
+{:then repos}
+  <TtyStatus status="OK">Projects ({repos.length})</TtyStatus>
+  {#each repos as { description, html_url, language, name }}
+    <TtyLine>
+      - <Link external href={html_url}>{name.toLowerCase()}</Link>
+      [{language ?? '?'}]
+      {description}
+    </TtyLine>
+  {/each}
+{:catch}
+  <TtyStatus status="FAIL">Failed to load projects.</TtyStatus>
+{/await}
+<br />
+
+{#await data.orgs}
+  <TtyStatus status="PROG">Loading organisations...</TtyStatus>
+{:then orgs}
+  <TtyStatus status="OK">Organisations ({orgs.length})</TtyStatus>
+  {#each orgs as { avatar_url, login }}
+    <TtyLine>
+      - <img alt="{login}'s icon" class="inline-block h-4 w-4" src={avatar_url} />
+      <Link external href="https://github.com/{login}">{login.toLowerCase()}</Link>
+    </TtyLine>
+  {/each}
+{:catch}
+  <TtyStatus status="FAIL">Failed to load organisations.</TtyStatus>
+{/await}
+<br />
+
+{#await data.tracks}
+  <TtyStatus status="PROG">Loading top tracks...</TtyStatus>
+{:then tracks}
+  <TtyStatus status="OK">Top tracks [7d] ({tracks.length})</TtyStatus>
+  {#each tracks as { artist, name, url }}
+    <TtyLine>
+      - <Link external href={url}>{name}</Link> by {artist.name}
+    </TtyLine>
+  {/each}
+{:catch}
+  <TtyStatus status="FAIL">Failed to load top tracks.</TtyStatus>
+{/await}

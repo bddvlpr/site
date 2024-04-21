@@ -21,7 +21,7 @@ export const getPosts = async (
 ): Promise<Array<Metadata>> => {
   const posts = (
     await Promise.all(
-      Object.entries(import.meta.glob('../posts/*.svx')).map(async ([path, resolver]) => {
+      Object.entries(import.meta.glob('../../posts/*.svx')).map(async ([path, resolver]) => {
         const { metadata } = (await resolver()) as { metadata: Metadata };
         const slug = path.split('/').pop()!.replace('.svx', '');
         return { ...metadata, slug };
@@ -35,7 +35,7 @@ export const getPosts = async (
 };
 
 export const getPost = async (slug: string): Promise<Post | null> => {
-  const post = await import(`../posts/${slug}.svx`).catch(() => null);
+  const post = await import(`../../posts/${slug}.svx`).catch(() => null);
   if (!post) return null;
 
   return {

@@ -1,11 +1,11 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
 
+  import TtyLine from '$lib/components/effects/tty-line.svelte';
+
   const { children }: { children: Snippet } = $props();
 </script>
 
-<table class="table-fixed px-1 py-2 font-tty">
-  <tbody>
-    {@render children()}
-  </tbody>
-</table>
+<TtyLine>
+  {@render children()}
+</TtyLine>

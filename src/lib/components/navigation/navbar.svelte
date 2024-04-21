@@ -1,12 +1,15 @@
 <script lang="ts">
+  import TtyLine from '../effects/tty-line.svelte';
   import Link from './link.svelte';
 
-  const links = ['/.', '/blog'];
+  const links = ['/.', '/about', '/blog'];
 </script>
 
-<div class="flex gap-2">
-  {'~> cd'}
-  {#each links as link}
-    <span><Link href={link}>{link}</Link></span>
-  {/each}
-</div>
+<br />
+<TtyLine>
+  <div class="flex gap-2">
+    {#each links as href}
+      <Link {href}>{href}</Link>
+    {/each}
+  </div>
+</TtyLine>
