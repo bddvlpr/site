@@ -8,7 +8,7 @@
 
 <svelte:head>
   <title>bddvlpr - Blog</title>
-  <meta name="description" content="Luna's blog. I write about random stuff." />
+  <meta content="Luna's blog. I write about random stuff." name="description" />
 </svelte:head>
 
 {#await data.posts}

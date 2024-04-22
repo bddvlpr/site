@@ -35,7 +35,7 @@
 
 <svelte:head>
   <title>bddvlpr</title>
-  <meta name="description" content="Luna's portfolio page. I'm sorry mobile users." />
+  <meta content="Luna's portfolio page. I'm sorry mobile users." name="description" />
 </svelte:head>
 
 <TtyStatus status="OK">Welcome to my portfolio page.</TtyStatus>

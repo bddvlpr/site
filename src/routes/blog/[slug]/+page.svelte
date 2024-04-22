@@ -5,7 +5,7 @@
 
 <svelte:head>
   <title>bddvlpr - {title}</title>
-  <meta name="description" content={description} />
+  <meta content={description} name="description" />
 </svelte:head>
 
 <svelte:component this={data.post.content} />
