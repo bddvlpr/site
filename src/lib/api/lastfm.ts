@@ -1,14 +1,12 @@
-export type IdObject = {
-	mbid: string;
-};
+import { LASTFM_TOKEN } from '$env/static/private';
+import { LastFMUser } from 'lastfm-ts-api';
 
-export type Track = {
-	name: string;
-	url: string;
-	artist: Artist;
-} & IdObject;
+const api = new LastFMUser(LASTFM_TOKEN);
 
-export type Artist = {
-	mbid: string;
-	'#text': string;
-} & IdObject;
+export const getLastFmRecentTracks = (username: string) =>
+  api.getRecentTracks({ user: username }).then(({ recenttracks }) => recenttracks.track);
+
+export const getLastFmTopTracks = (username: string) =>
+  api
+    .getTopTracks({ period: '7day', user: username })
+    .then(({ toptracks }) => toptracks.track.splice(0, 5));

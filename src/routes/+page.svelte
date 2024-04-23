@@ -1,43 +1,99 @@
 <script lang="ts">
-	import Fa from 'svelte-fa';
-	import { faGithub, faLastfm, faSpotify, faSteam } from '@fortawesome/free-brands-svg-icons';
-	import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
-	import type { PageData } from './$types';
-	import Anchor from '$lib/components/content/Anchor.svelte';
+  import TtyLine from '$lib/components/effects/tty-line.svelte';
+  import TtyStatus from '$lib/components/effects/tty-status.svelte';
+  import Link from '$lib/components/navigation/link.svelte';
 
-	export let data: PageData;
+  const links = [
+    {
+      href: 'mailto:contact@bddvlpr.com',
+      text: 'e-mail'
+    },
+    {
+      href: 'https://github.com/bddvlpr',
+      text: 'github'
+    },
+    {
+      href: 'https://discord.com/users/932859041368125532',
+      text: 'discord'
+    },
+    {
+      href: 'https://matrix.to/#/@luna:bddvlpr.com',
+      text: 'matrix'
+    },
+    {
+      href: 'https://last.fm/user/bddvlpr',
+      text: 'last.fm'
+    },
+    {
+      href: 'https://steamcommunity.com/id/gpgkey',
+      text: 'steam'
+    }
+  ].sort((a, b) => a.text.localeCompare(b.text));
 
-	const links = [
-		{ href: 'https://github.com/bddvlpr', icon: faGithub },
-		{ href: 'https://steamcommunity.com/id/gpgkey', icon: faSteam },
-		{ href: 'https://last.fm/user/bddvlpr', icon: faLastfm },
-		{ href: 'https://open.spotify.com/user/1158898067', icon: faSpotify },
-		{ href: 'mailto:contact@bddvlpr.com', icon: faPaperPlane }
-	];
-
-	$: recentSong = data.recentTracks[0];
+  const { data } = $props();
 </script>
 
-<div class="bg-white-100 flex h-full flex-col items-center pt-4">
-	<div class="m-auto">
-		<h1 class="text-5xl font-extrabold line-through decoration-8 md:text-8xl">bddvlpr</h1>
-		<div class="w-48 truncate md:w-96">
-			{#if recentSong}
-				<Anchor>
-					<a href={recentSong.url} class="hover:underline"
-						>&sung; {recentSong.name} - {recentSong.artist['#text']}</a
-					>
-				</Anchor>
-			{/if}
-		</div>
-	</div>
-	<div class="grid grid-cols-2 gap-2 place-self-start pt-2 md:grid-cols-3">
-		{#each links as { href, icon }}
-			<Anchor>
-				<a {href}>
-					<Fa {icon} size="2x" />
-				</a>
-			</Anchor>
-		{/each}
-	</div>
-</div>
+<svelte:head>
+  <title>bddvlpr</title>
+  <meta content="Luna's portfolio page. I'm sorry mobile users." name="description" />
+</svelte:head>
+
+<TtyStatus status="OK">Welcome to my portfolio page.</TtyStatus>
+<TtyLine>
+  Hi, I'm Luna, a full-stack developer and devops engineer from Belgium. Feel free to browse my
+  projects and organisations below, or check out my <Link href="/blog">/blog</Link> where I write about
+  random stuff.
+</TtyLine>
+<br />
+
+<TtyStatus status="OK">Connections</TtyStatus>
+{#each links as { href, text }}
+  <TtyLine>
+    - <Link external {href}>{text}</Link>
+  </TtyLine>
+{/each}
+<br />
+
+{#await data.repos}
+  <TtyStatus status="PROG">Loading projects...</TtyStatus>
+{:then repos}
+  <TtyStatus status="OK">Projects ({repos.length})</TtyStatus>
+  {#each repos as { description, html_url, language, name }}
+    <TtyLine>
+      - <Link external href={html_url}>{name.toLowerCase()}</Link>
+      [{language ?? '?'}]
+      {description}
+    </TtyLine>
+  {/each}
+{:catch}
+  <TtyStatus status="FAIL">Failed to load projects.</TtyStatus>
+{/await}
+<br />
+
+{#await data.orgs}
+  <TtyStatus status="PROG">Loading organisations...</TtyStatus>
+{:then orgs}
+  <TtyStatus status="OK">Organisations ({orgs.length})</TtyStatus>
+  {#each orgs as { avatar_url, login }}
+    <TtyLine>
+      - <img alt="{login}'s icon" class="inline-block h-4 w-4" src={avatar_url} />
+      <Link external href="https://github.com/{login}">{login.toLowerCase()}</Link>
+    </TtyLine>
+  {/each}
+{:catch}
+  <TtyStatus status="FAIL">Failed to load organisations.</TtyStatus>
+{/await}
+<br />
+
+{#await data.tracks}
+  <TtyStatus status="PROG">Loading top tracks...</TtyStatus>
+{:then tracks}
+  <TtyStatus status="OK">Top tracks [7d] ({tracks.length})</TtyStatus>
+  {#each tracks as { artist, name, url }}
+    <TtyLine>
+      - <Link external href={url}>{name}</Link> by {artist.name}
+    </TtyLine>
+  {/each}
+{:catch}
+  <TtyStatus status="FAIL">Failed to load top tracks.</TtyStatus>
+{/await}

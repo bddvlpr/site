@@ -1,0 +1,76 @@
+[
+  {
+    "message": "Started udev Kernel Device Manager.",
+    "status": "OK"
+  },
+  {
+    "message": "Starting LSB: Set preliminary keymap..."
+  },
+  {
+    "message": "Started LSB: Set preliminary keymap.",
+    "status": "OK"
+  },
+  {
+    "message": "Starting Remount Root and Kernel File Systems..."
+  },
+  {
+    "message": "Started Remount Root and Kernel File Systems.",
+    "status": "OK"
+  },
+  {
+    "message": "Reached target Local File Systems (Pre).",
+    "status": "OK"
+  },
+  {
+    "message": "Starting Flush Journal to Persistent Storage..."
+  },
+  {
+    "message": "Starting udev Coldplug all devices..."
+  },
+  {
+    "message": "Starting Load/Save Random Seed..."
+  },
+  {
+    "message": "Reached target Local File Systems.",
+    "status": "OK"
+  },
+  {
+    "message": "Reached target Remote File Systems.",
+    "status": "OK"
+  },
+  {
+    "message": "Starting LSB: Prepare console..."
+  },
+  {
+    "message": "Started Flush Journal to Persistent Storage.",
+    "status": "OK"
+  },
+  {
+    "message": "Started Load/Save Random Seed.",
+    "status": "OK"
+  },
+  {
+    "message": "Starting LSB: Raise network interfaces..."
+  },
+  {
+    "message": "Starting Create Volatile Files and Directories..."
+  },
+  {
+    "message": "Started Create Volatile Files and Directories.",
+    "status": "OK"
+  },
+  {
+    "message": "Starting Update UTMP about System Boot/Shutdown..."
+  },
+  {
+    "message": "Starting Network Time Syncronization..."
+  },
+  {
+    "message": "Started udev Coldplug all devices.",
+    "status": "OK"
+  },
+  {
+    "message": "Started Update UTMP about System Boot/Shutdown.",
+    "status": "OK"
+  }
+]
