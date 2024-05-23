@@ -10,15 +10,15 @@
     },
     {
       href: 'https://github.com/bddvlpr',
-      text: 'github'
+      text: 'github.com'
     },
     {
       href: 'https://discord.com/users/932859041368125532',
-      text: 'discord'
+      text: 'discord.com'
     },
     {
       href: 'https://matrix.to/#/@luna:bddvlpr.com',
-      text: 'matrix'
+      text: 'matrix.to'
     },
     {
       href: 'https://last.fm/user/bddvlpr',
@@ -26,7 +26,11 @@
     },
     {
       href: 'https://steamcommunity.com/id/gpgkey',
-      text: 'steam'
+      text: 'steamcommunity.com'
+    },
+    {
+      href: 'https://x.com/bddvlpr',
+      text: 'x.com'
     }
   ].sort((a, b) => a.text.localeCompare(b.text));
 
