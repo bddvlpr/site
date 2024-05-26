@@ -45,8 +45,9 @@
 <TtyStatus status="OK">Welcome to my portfolio page.</TtyStatus>
 <TtyLine>
   Hi, I'm Luna, a full-stack developer and devops engineer from Belgium. Feel free to browse my
-  projects and organisations below, or check out my <Link href="/blog">/blog</Link> where I write about
-  random stuff.
+  projects and organisations below, or check out my <Link href="https://blog.bddvlpr.com"
+    >/blog</Link
+  > where I write about random stuff.
 </TtyLine>
 <br />
 
