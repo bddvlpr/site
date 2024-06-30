@@ -10,7 +10,7 @@ export const getGitHubRepos = async (username: string) =>
     .listForUser({ per_page: 100, username })
     .then(({ data }) =>
       data
-        .filter(({ archived, stargazers_count }) => !archived && (stargazers_count ?? 0) > 5)
+        .filter(({ topics }) => topics?.includes('wuwa'))
         .sort((a, b) => (b.stargazers_count ?? 0) - (a.stargazers_count ?? 0))
     );
 
