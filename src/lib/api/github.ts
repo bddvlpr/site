@@ -7,7 +7,7 @@ const api = new Octokit({
 
 export const getGitHubRepos = async (username: string) =>
   api.repos
-    .listForUser({ username })
+    .listForUser({ per_page: 100, username })
     .then(({ data }) =>
       data
         .filter(({ archived, stargazers_count }) => !archived && (stargazers_count ?? 0) > 5)
@@ -15,4 +15,4 @@ export const getGitHubRepos = async (username: string) =>
     );
 
 export const getGitHubOrgs = async (username: string) =>
-  api.orgs.listForUser({ username }).then(({ data }) => data);
+  api.orgs.listForUser({ per_page: 100, username }).then(({ data }) => data);
