@@ -90,7 +90,7 @@
 {/await}
 <br />
 
-{#await data.tracks}
+{#await data.trackstop}
   <TtyStatus status="PROG">Loading top tracks...</TtyStatus>
 {:then tracks}
   <TtyStatus status="OK">Top tracks [7d] ({tracks.length})</TtyStatus>
@@ -101,4 +101,18 @@
   {/each}
 {:catch}
   <TtyStatus status="FAIL">Failed to load top tracks.</TtyStatus>
+{/await}
+<br />
+
+{#await data.tracksrecent}
+  <TtyStatus status="PROG">Loading recent tracks...</TtyStatus>
+{:then tracks}
+  <TtyStatus status="OK">Recent tracks ({tracks.length})</TtyStatus>
+  {#each tracks as { artist, name, url }}
+    <TtyLine>
+      - <Link external href={url}>{name}</Link> by {artist['#text']}
+    </TtyLine>
+  {/each}
+{:catch}
+  <TtyStatus status="FAIL">Failed to load recent tracks.</TtyStatus>
 {/await}

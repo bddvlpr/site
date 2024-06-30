@@ -4,7 +4,9 @@ import { LastFMUser } from 'lastfm-ts-api';
 const api = new LastFMUser(LASTFM_TOKEN);
 
 export const getLastFmRecentTracks = (username: string) =>
-  api.getRecentTracks({ user: username }).then(({ recenttracks }) => recenttracks.track);
+  api
+    .getRecentTracks({ user: username })
+    .then(({ recenttracks }) => recenttracks.track.splice(0, 5));
 
 export const getLastFmTopTracks = (username: string) =>
   api
