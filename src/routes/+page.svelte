@@ -17,10 +17,6 @@
       text: 'discord.com'
     },
     {
-      href: 'https://matrix.to/#/@luna:bddvlpr.com',
-      text: 'matrix.to'
-    },
-    {
       href: 'https://last.fm/user/bddvlpr',
       text: 'last.fm'
     },
