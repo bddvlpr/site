@@ -44,10 +44,10 @@
 
 <TtyStatus status="OK">Welcome to my portfolio page.</TtyStatus>
 <TtyLine>
-  Hi, I'm Luna, a full-stack developer and devops engineer from Belgium. Feel free to browse my
-  projects and organisations below, or check out my <Link href="https://blog.bddvlpr.com"
-    >/blog</Link
-  > where I write about random stuff.
+  Hi, I'm Luna, a full-stack developer and devops engineer from Belgium with a passion for
+  high-availability architectures, Nix and cryptography. When I'm not writing code, you'll likely
+  find me exploring Virtual Reality, tinkering with electronics and HAM radios. You can find my
+  projects and organisations below along with ways to contact me.
 </TtyLine>
 <br />
 
