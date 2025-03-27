@@ -39,12 +39,12 @@
 
 <svelte:head>
   <title>bddvlpr</title>
-  <meta content="Luna's portfolio page. I'm sorry mobile users." name="description" />
+  <meta content="bddvlpr's portfolio page. I'm sorry mobile users." name="description" />
 </svelte:head>
 
 <TtyStatus status="OK">Welcome to my portfolio page.</TtyStatus>
 <TtyLine>
-  Hi, I'm Luna, a full-stack developer and devops engineer from Belgium with a passion for
+  Hi, I'm bddvlpr, a full-stack developer and devops engineer from Belgium with a passion for
   high-availability architectures, Nix and cryptography. When I'm not writing code, you'll likely
   find me exploring Virtual Reality, tinkering with electronics and HAM radios. You can find my
   projects and organisations below along with ways to contact me.
