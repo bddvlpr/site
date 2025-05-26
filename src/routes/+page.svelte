@@ -27,10 +27,6 @@
     {
       href: 'https://steamcommunity.com/id/gpgkey',
       text: 'steamcommunity.com'
-    },
-    {
-      href: 'https://x.com/bddvlpr',
-      text: 'x.com'
     }
   ].sort((a, b) => a.text.localeCompare(b.text));
 
@@ -44,7 +40,7 @@
 
 <TtyStatus status="OK">Welcome to my portfolio page.</TtyStatus>
 <TtyLine>
-  Hi, I'm bddvlpr, a full-stack developer and devops engineer from Belgium with a passion for
+  Hi, I'm Luna, a full-stack developer and devops engineer from Belgium with a passion for
   high-availability architectures, Nix and cryptography. When I'm not writing code, you'll likely
   find me exploring Virtual Reality, tinkering with electronics and HAM radios. You can find my
   projects and organisations below along with ways to contact me.
