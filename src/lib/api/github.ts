@@ -15,4 +15,6 @@ export const getGitHubRepos = async (username: string) =>
     );
 
 export const getGitHubOrgs = async (username: string) =>
-  api.orgs.listForUser({ per_page: 100, username }).then(({ data }) => data);
+  api.orgs
+    .listForUser({ per_page: 100, username })
+    .then(({ data }) => data.sort((a, b) => a.login.localeCompare(b.login)));
