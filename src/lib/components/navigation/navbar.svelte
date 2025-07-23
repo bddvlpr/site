@@ -8,8 +8,8 @@
       text: '/.'
     },
     {
-      href: 'https://blog.bddvlpr.com',
-      text: '/blog'
+      href: 'https://scribbles.bddvlpr.com',
+      text: '/scribbles'
     }
   ];
 </script>
