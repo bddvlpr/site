@@ -21,10 +21,6 @@
       text: 'last.fm'
     },
     {
-      href: 'https://matrix.to/#/@luna:bddvlpr.com',
-      text: 'matrix.to'
-    },
-    {
       href: 'https://steamcommunity.com/id/gpgkey',
       text: 'steamcommunity.com'
     }
